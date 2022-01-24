@@ -11,7 +11,7 @@ fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
 
 pub trait Summary {
     fn summarize(&self) -> String {
-        println!("Read more")
+        format!("Read more")
     }
 }
 
