@@ -1,6 +1,8 @@
 mod collections;
+mod concurrency;
 mod generic_trait_lifetime;
-use generic_trait_lifetime::{Summary, Tweet};
+
+use crate::generic_trait_lifetime::{Summary, Tweet};
 
 fn main() {
     println!("Hello wor");

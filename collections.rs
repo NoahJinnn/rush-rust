@@ -56,4 +56,12 @@ pub fn vector_demo() {
     let team_name = String::from("Blue");
     let score = scores.get("Blue");
     println!("{:?}", score);
+
+    // Iterator
+    let numbers = vec![1, 2, 3];
+    numbers.iter().for_each(|x| println!("{}", x));
+    let doubled: Vec<_> = numbers.iter().map(|num| num * 2).collect(); // Need type annotate for Vec, already known i32
+    let even: Vec<_> = numbers.iter().filter(|x| *x % 2 == 0).collect();
+    let first_even = numbers.iter().find(|x| *x % 2 == 0);
+    println!("{:?}", first_even.unwrap());
 }

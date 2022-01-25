@@ -1,4 +1,4 @@
-fn demo_reference() {
+fn reference_demo() {
     let s1 = String::from("Ref");
     let len = calculate_length(&s1);
     print!("{}", s1);
