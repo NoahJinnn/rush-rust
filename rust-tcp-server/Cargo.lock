@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "rush-rust"
+name = "basic-server"
 version = "0.1.0"

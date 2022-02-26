@@ -1,3 +1,9 @@
+mod collections;
+mod concurrency;
+mod generic_trait_lifetime;
+
+use crate::generic_trait_lifetime::{Summary, Tweet};
+
 fn main() {
     println!("Hello, world!");
     let a = 4; // dafault to immutable
@@ -45,9 +51,25 @@ fn main() {
     for number in (1..4).rev() {
         println!("{}!", number);
     }
+
+    println!("Hello wor");
+    collections::vector_demo();
+    let tweet = Tweet {
+        title: "Test".to_string(),
+        content: "Test".to_string(),
+    };
+    println!("{}", tweet.summarize());
 }
 
 // Return value function
 fn five() -> i32 {
     5 // equivalent to return 5;
+}
+
+// Return trait
+fn return_summarizable() -> impl Summary {
+    Tweet {
+        title: "Test".to_string(),
+        content: "Test".to_string(),
+    }
 }
