@@ -5,6 +5,11 @@ struct User {
     sign_in_count: u64,
 }
 
+struct UserWithLT<'a> {
+    username: &'a str, // Need to specify lifetime because the type is reference => field will live until thhe struct alive
+    email: &'a str,
+}
+
 #[derive(Debug)]
 struct Rectangle {
     w: u16,
@@ -40,7 +45,7 @@ fn struct_demo() {
 
     let u3 = User {
         email: String::from("cc@t.com"),
-        ..u1 // u1 no longer be used, bc name value is move into u3
+        ..u1 // u1 no longer be used, bc username value is move into u3
     };
 
     struct Color(i32, i32, i32); // tuple struct

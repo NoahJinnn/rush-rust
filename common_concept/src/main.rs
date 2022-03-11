@@ -73,3 +73,23 @@ fn return_summarizable() -> impl Summary {
         content: "Test".to_string(),
     }
 }
+
+#[derive(Debug)]
+struct Obj {
+    a: &str,
+    b: &str
+}
+fn print_prac() {
+    println!("This is my {last_msg} and {other}", last_msg = "last", other = "other");
+    let obj = Obj {
+        a: "a",
+        b: "b",
+    };
+
+    // Inline
+    println!("{:?}", obj);
+    // Prettier
+    println!("{:#?}", obj);
+    let fmt_str = format!("{0:#?} {1}", obj, "b");
+
+}
