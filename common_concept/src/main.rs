@@ -1,9 +1,11 @@
 mod collections;
 mod concurrency;
+mod generic;
 mod generic_trait_lifetime;
 
 use crate::generic_trait_lifetime::{Summary, Tweet};
 
+#[allow(unused)]
 fn main() {
     println!("Hello, world!");
     let a = 4; // dafault to immutable
@@ -75,21 +77,21 @@ fn return_summarizable() -> impl Summary {
 }
 
 #[derive(Debug)]
-struct Obj {
-    a: &str,
-    b: &str
+struct Obj<'a> {
+    a: &'a str,
+    b: &'a str,
 }
 fn print_prac() {
-    println!("This is my {last_msg} and {other}", last_msg = "last", other = "other");
-    let obj = Obj {
-        a: "a",
-        b: "b",
-    };
+    println!(
+        "This is my {last_msg} and {other}",
+        last_msg = "last",
+        other = "other"
+    );
+    let obj = Obj { a: "a", b: "b" };
 
     // Inline
     println!("{:?}", obj);
     // Prettier
     println!("{:#?}", obj);
     let fmt_str = format!("{0:#?} {1}", obj, "b");
-
 }

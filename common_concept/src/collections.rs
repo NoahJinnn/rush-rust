@@ -53,7 +53,6 @@ pub fn vector_demo() {
     scores.insert(String::from("Blue"), 10);
     scores.insert(String::from("Yellow"), 50);
 
-    let team_name = String::from("Blue");
     let score = scores.get("Blue");
     println!("{:?}", score);
 
