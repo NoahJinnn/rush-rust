@@ -2,6 +2,7 @@ mod collections;
 mod concurrency;
 mod generic;
 mod generic_trait_lifetime;
+mod error_handling;
 
 use crate::generic_trait_lifetime::{Summary, Tweet};
 
