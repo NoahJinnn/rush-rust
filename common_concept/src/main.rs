@@ -3,6 +3,8 @@ mod concurrency;
 mod generic;
 mod generic_trait_lifetime;
 mod error_handling;
+mod weird_notion;
+mod printing;
 
 use crate::generic_trait_lifetime::{Summary, Tweet};
 
@@ -69,30 +71,4 @@ fn five() -> i32 {
     5 // equivalent to return 5;
 }
 
-// Return trait
-fn return_summarizable() -> impl Summary {
-    Tweet {
-        title: "Test".to_string(),
-        content: "Test".to_string(),
-    }
-}
 
-#[derive(Debug)]
-struct Obj<'a> {
-    a: &'a str,
-    b: &'a str,
-}
-fn print_prac() {
-    println!(
-        "This is my {last_msg} and {other}",
-        last_msg = "last",
-        other = "other"
-    );
-    let obj = Obj { a: "a", b: "b" };
-
-    // Inline
-    println!("{:?}", obj);
-    // Prettier
-    println!("{:#?}", obj);
-    let fmt_str = format!("{0:#?} {1}", obj, "b");
-}
