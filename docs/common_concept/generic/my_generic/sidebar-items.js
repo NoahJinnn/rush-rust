@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["b_f",""],["compare_prints",""],["difference",""],["f",""],["use_generic",""]],"struct":[["BarrierType",""],["Container",""],["DoubleS",""],["S",""],["TupleS",""],["YourType",""],["b_S",""]],"trait":[["Barrier",""],["Contains",""],["DoubleTr",""],["MyTrait",""],["Tr",""],["TraitB",""],["TraitC",""],["TraitE",""],["TraitF",""],["b_Tr",""]]});

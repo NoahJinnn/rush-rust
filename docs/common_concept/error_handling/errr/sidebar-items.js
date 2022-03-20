@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Food",""]],"fn":[["handle_multi_err_types",""],["handle_option",""],["handle_result",""]],"struct":[["Chopped",""],["Cooked",""],["DoubleError",""],["Peeled",""]],"type":[["CusResult",""],["DynResult",""]]});

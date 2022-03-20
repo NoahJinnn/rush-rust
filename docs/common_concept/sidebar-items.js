@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["five",""],["main",""]],"mod":[["collections",""],["concurrency",""],["error_handling",""],["generic",""],["generic_trait_lifetime",""],["printing",""],["weird_notion",""]]});
