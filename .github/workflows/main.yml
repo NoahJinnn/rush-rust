@@ -14,7 +14,7 @@ on:
 env:
   REGISTRY: ghcr.io
   CARGO_TERM_COLOR: always
-  IMAGE_NAME: common_concept
+  IMAGE_NAME: common-concept
 
 jobs:
   build-and-push-image:
