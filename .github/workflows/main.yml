@@ -20,7 +20,6 @@ env:
 
 jobs:
   build-and-push-image:
-    if: ${{ github.event.pull_request.merged }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -67,6 +66,7 @@ jobs:
               password: ${{ secrets.GITHUB_TOKEN }}
 
           - name: Build and push
+            if: github.event.pull_request.merged
             uses: docker/build-push-action@v2
             with:
               context: ./common_concept
