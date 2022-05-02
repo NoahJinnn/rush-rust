@@ -1,7 +1,11 @@
 #[allow(unused)]
 mod errr {
-    use std::{error::Error, num::ParseIntError, fmt::{Display, Formatter}};
-    
+    use std::{
+        error::Error,
+        fmt::{Display, Formatter},
+        num::ParseIntError,
+    };
+
     #[derive(Debug)]
     enum Food {
         Apple,
