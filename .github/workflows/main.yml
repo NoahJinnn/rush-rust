@@ -14,7 +14,7 @@ on:
 env:
   REGISTRY: ghcr.io
   CARGO_TERM_COLOR: always
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: common_concept
 
 jobs:
   build-and-push-image:
@@ -56,7 +56,7 @@ jobs:
                 type=semver,pattern={{major}}.{{minor}}
 
           - name: Log in to the Container registry
-            if: github.event.pull_request.merged
+            if: github.event_name != 'pull_request'
             uses: docker/login-action@v1
             with:
               registry: ${{ env.REGISTRY }}
@@ -64,17 +64,18 @@ jobs:
               password: ${{ secrets.GITHUB_TOKEN }}
 
           - name: Build and push
-            if: github.event.pull_request.merged
+            if: github.event_name != 'pull_request'
             uses: docker/build-push-action@v2
             with:
               context: ./common_concept
-              push: ${{ github.event.pull_request.merged }}
+              push: ${{ github.event_name != 'pull_request' }}
               tags: ${{ steps.meta.outputs.tags }}
               labels: ${{ steps.meta.outputs.labels }}
           - name: Pull
             run: |
               export CR_PAT=${{ secrets.GITHUB_TOKEN }}
               echo $CR_PAT | docker login ${{ env.REGISTRY }} -u ${{ github.repository }} --password-stdin 
+              echo ${{ env.REGISTRY }}/${{ github.repository }}/$IMAGE_NAME:${{ steps.meta.outputs.tags }}
               docker pull ${{ env.REGISTRY }}/${{ github.repository }}/$IMAGE_NAME:${{ steps.meta.outputs.tags }}
 
               cd $HOME && \
