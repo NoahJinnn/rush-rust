@@ -73,7 +73,7 @@ jobs:
               labels: ${{ steps.meta.outputs.labels }}
           - name: Pull
             run: |
-              export CR_PAT=YOUR_TOKEN
+              export CR_PAT=${{ secrets.GITHUB_TOKEN }}
               echo $CR_PAT | docker login ${{ env.REGISTRY }} -u ${{ github.repository }} --password-stdin 
               docker pull ${{ env.REGISTRY }}/${{ github.repository }}/$IMAGE_NAME:${{ steps.meta.outputs.tags }}
 
