@@ -10,6 +10,8 @@ on:
     branches:
       - "main"
     types: [opened, closed]
+    tags:
+      - 'v*'
 
 env:
   REGISTRY: ghcr.io
