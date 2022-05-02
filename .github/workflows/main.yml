@@ -9,9 +9,7 @@ on:
   pull_request:
     branches:
       - "main"
-    types: [opened, closed]
-    tags:
-      - 'v*'
+    # types: [opened, closed]
 
 env:
   REGISTRY: ghcr.io
@@ -73,3 +71,13 @@ jobs:
               push: ${{ github.event.pull_request.merged }}
               tags: ${{ steps.meta.outputs.tags }}
               labels: ${{ steps.meta.outputs.labels }}
+          - name: Pull
+            run: |
+              export CR_PAT=YOUR_TOKEN
+              echo $CR_PAT | docker login ${{ env.REGISTRY }} -u ${{ github.repository }} --password-stdin 
+              docker pull ${{ env.REGISTRY }}/${{ github.repository }}/$IMAGE_NAME:${{ steps.meta.outputs.tags }}
+
+              cd $HOME && \
+              docker network create --driver bridge tss_new || true && \
+              docker stop nyc || true && docker rm nyc || true && \
+              docker run -d --rm --name nyc --ip ${{secrets.NYC_CONTAINER_IP}} -p ${{secrets.NYC_PORT}}:${{secrets.NYC_PORT}} --network=tss_new ${{ env.REGISTRY }}/${{ github.repository }}/$IMAGE_NAME:${{ steps.meta.outputs.tags }}
