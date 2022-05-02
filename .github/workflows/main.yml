@@ -75,8 +75,8 @@ jobs:
             run: |
               export CR_PAT=${{ secrets.GITHUB_TOKEN }}
               echo $CR_PAT | docker login ${{ env.REGISTRY }} -u ${{ github.repository }} --password-stdin 
-              echo ${{ env.REGISTRY }}/${{ github.repository }}/$IMAGE_NAME:${{ steps.meta.outputs.tags }}
-              docker pull ${{ env.REGISTRY }}/${{ github.repository }}/$IMAGE_NAME:${{ steps.meta.outputs.tags }}
+              echo ${{ steps.meta.outputs.tags }}
+              docker pull ${{ steps.meta.outputs.tags }}
 
               cd $HOME && \
               docker network create --driver bridge tss_new || true && \
