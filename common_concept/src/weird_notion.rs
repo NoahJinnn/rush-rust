@@ -7,7 +7,7 @@ mod special_syntax {
     fn demonstrate() {
         let years = Years(42);
         let years_as_primitive_1: i64 = years.0; // Tuple
-        let Years(years_as_primitive_2) = years; // Destructuring   
+        let Years(years_as_primitive_2) = years; // Destructuring
     }
 
     // Result Alias
@@ -15,7 +15,7 @@ mod special_syntax {
     type AliasedResult<T> = Result<T, ParseIntError>;
     fn print(result: AliasedResult<i32>) {
         match result {
-            Ok(n)  => println!("n is {}", n),
+            Ok(n) => println!("n is {}", n),
             Err(e) => println!("Error: {}", e),
         }
     }
@@ -47,5 +47,4 @@ mod special_syntax {
             duck.quack();
         }
     }
-
 }

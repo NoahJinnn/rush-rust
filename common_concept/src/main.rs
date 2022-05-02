@@ -1,10 +1,10 @@
 mod collections;
 mod concurrency;
+mod error_handling;
 mod generic;
 mod generic_trait_lifetime;
-mod error_handling;
-mod weird_notion;
 mod printing;
+mod weird_notion;
 
 use crate::generic_trait_lifetime::{Summary, Tweet};
 
@@ -70,5 +70,3 @@ fn main() {
 fn five() -> i32 {
     5 // equivalent to return 5;
 }
-
-
