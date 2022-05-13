@@ -2,11 +2,9 @@ mod collections;
 mod concurrency;
 mod error_handling;
 mod generic;
-mod generic_trait_lifetime;
+mod lifetimes;
 mod printing;
 mod weird_notion;
-
-use crate::generic_trait_lifetime::{Summary, Tweet};
 
 #[allow(unused)]
 fn main() {
@@ -59,11 +57,7 @@ fn main() {
 
     println!("Hello wor");
     collections::vector_demo();
-    let tweet = Tweet {
-        title: "Test".to_string(),
-        content: "Test".to_string(),
-    };
-    println!("{}", tweet.summarize());
+
 }
 
 // Return value function
