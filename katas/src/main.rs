@@ -1,7 +1,6 @@
 use std::collections::HashMap;
 
 fn main() {
-    println!("Hello, world!");
     find_median_and_mode();
     convert_word_to_pig_latin();
 }

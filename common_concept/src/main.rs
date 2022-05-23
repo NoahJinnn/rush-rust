@@ -1,3 +1,5 @@
+use crate::closure::closure::Cacher;
+
 mod collections;
 mod concurrency;
 mod error_handling;
@@ -5,10 +7,11 @@ mod generic;
 mod lifetimes;
 mod printing;
 mod weird_notion;
+mod closure;
 
 #[allow(unused)]
 fn main() {
-    println!("Hello, world!");
+
     let a = 4; // dafault to immutable
     let mut a = 3; // mutable variable
     const IM_A_CONSTANT: u32 = 6; // constant
