@@ -1,5 +1,3 @@
-use crate::closure::closure::Cacher;
-
 mod collections;
 mod concurrency;
 mod error_handling;

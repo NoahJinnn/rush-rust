@@ -62,5 +62,5 @@ pub fn vector_demo() {
     let doubled: Vec<_> = numbers.iter().map(|num| num * 2).collect(); // Need type annotate for Vec, already known i32
     let even: Vec<_> = numbers.iter().filter(|x| *x % 2 == 0).collect();
     let first_even = numbers.iter().find(|x| *x % 2 == 0);
-    println!("{:?}", first_even.unwrap());
+    println!("{:?} {:?} {:?}", doubled.get(0), even.get(0), first_even.unwrap());
 }
