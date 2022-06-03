@@ -6,6 +6,7 @@ mod lifetimes;
 mod printing;
 mod weird_notion;
 mod closure;
+mod smart_pointer;
 
 #[allow(unused)]
 fn main() {
