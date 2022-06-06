@@ -40,6 +40,14 @@ pub mod collections {
         for ch in arr.chunks(2) {
             println!("chunk {:?}", ch);
         } // chunk [1,2], chunk [3]
+        let name = ["one", "two", "three"];
+        let num = [1,2,3];
+        for tpl in name.iter().enumerate() {
+            println!("{:?}", tpl);
+        } // (0, "one"), (1, "two"), (2, "three")
+        for p in name.iter().zip(num.iter()) {
+            println!("{:?}", p);
+        } // ("one", 1), ("two", 2)
 
         // Functional programming
         let numbers = vec![1, 2, 3];
