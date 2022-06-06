@@ -2,7 +2,7 @@
 mod special_syntax {
     use std::num::ParseIntError;
 
-    // New type definition
+    /* New type definition */
     struct Years(i64); // so call tuple struct
     fn demonstrate() {
         let years = Years(42);
@@ -10,7 +10,7 @@ mod special_syntax {
         let Years(years_as_primitive_2) = years; // Destructuring
     }
 
-    // Result Alias
+    /* Result Alias */
     // Define a generic alias for a `Result` with the error type `ParseIntError`.
     type AliasedResult<T> = Result<T, ParseIntError>;
     fn print(result: AliasedResult<i32>) {
@@ -20,7 +20,7 @@ mod special_syntax {
         }
     }
 
-    // Trait object
+    /* Trait object */
     trait Duck {
         fn quack(&self);
     }
@@ -46,5 +46,19 @@ mod special_syntax {
         for duck in duck_vec {
             duck.quack();
         }
+    }
+
+    /* Pro sum */
+    fn do_sum() -> i32 {
+        (0..5).sum()
+    }
+
+    /* Match arms */
+    fn do_match(n: i32) -> {
+        let text = match n {
+            0...3 => "small",
+            4...6 => "medium",
+            _ => "large",
+        };
     }
 }
