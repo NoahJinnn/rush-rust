@@ -7,7 +7,7 @@ mod printing;
 mod weird_notion;
 mod closure;
 mod smart_pointer;
-mod about_strings;
+mod string;
 
 #[allow(unused)]
 fn main() {

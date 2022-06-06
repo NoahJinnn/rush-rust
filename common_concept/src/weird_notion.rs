@@ -54,10 +54,10 @@ mod special_syntax {
     }
 
     /* Match arms */
-    fn do_match(n: i32) -> {
+    fn do_match(n: i32) {
         let text = match n {
-            0...3 => "small",
-            4...6 => "medium",
+            0..=3 => "small",
+            4..=6 => "medium",
             _ => "large",
         };
     }

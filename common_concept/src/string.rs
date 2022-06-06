@@ -1,3 +1,4 @@
+#[allow(unused)]
 pub mod about_strings {
     fn string_do() {
         let s = "test".to_string();

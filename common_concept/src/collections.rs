@@ -1,6 +1,7 @@
-use std::collections::HashMap;
-
+#[allow(unused)]
 pub mod collections {
+    use std::collections::HashMap;
+
     pub fn vector_do() {
         let mut emp_v: Vec<u32> = Vec::new();
         let mut v = vec![1, 2, 3];
@@ -21,16 +22,24 @@ pub mod collections {
             println!("{}", val);
         }
         // Utils
-        let mut v2 = vec![2,4,5,1];
+        let mut v2 = vec![2, 4, 5, 1];
         v2.sort();
     }
-    
+
     fn iterator_do() {
-        let arr = [1,2,3];
-        for i in arr.iter() { println!("{}", i); }
-        for i in &arr { println!("{}", i); } // Slice to iterator implicitly
-        for w in &arr.windows(2) { println!("window {:?}", i); } // window [1,2], window [2,3]
-        for ch in &arr.chunks(2) { println!("chunk {:?}", i); } // chunk [1,2], window [3]
+        let arr = [1, 2, 3];
+        for i in arr.iter() {
+            println!("{}", i);
+        }
+        for i in &arr {
+            println!("{}", i);
+        } // Slice to iterator implicitly
+        for w in arr.windows(2) {
+            println!("window {:?}", w);
+        } // window [1,2], window [2,3]
+        for ch in arr.chunks(2) {
+            println!("chunk {:?}", ch);
+        } // chunk [1,2], chunk [3]
 
         // Functional programming
         let numbers = vec![1, 2, 3];
@@ -38,16 +47,21 @@ pub mod collections {
         let doubled: Vec<_> = numbers.iter().map(|num| num * 2).collect(); // Need type annotate for Vec, already known i32
         let even: Vec<_> = numbers.iter().filter(|x| *x % 2 == 0).collect();
         let first_even = numbers.iter().find(|x| *x % 2 == 0);
-        println!("{:?} {:?} {:?}", doubled.get(0), even.get(0), first_even.unwrap());
+        println!(
+            "{:?} {:?} {:?}",
+            doubled.get(0),
+            even.get(0),
+            first_even.unwrap()
+        );
     }
 
     fn map_do() {
         let field_name = String::from("Favorite color");
         let field_value = String::from("Blue");
-    
+
         let mut map = HashMap::new();
         map.insert(field_name, field_value); // field_name, field_value is moved to map
-    
+
         let text = "hello world wonderful world";
         let mut map = HashMap::new();
         for word in text.split_whitespace() {
