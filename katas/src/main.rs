@@ -1,5 +1,9 @@
-use std::collections::HashMap;
+// pub mod gui;
 
+pub mod gui;
+
+use std::collections::HashMap;
+use gui::*;
 fn main() {
     find_median_and_mode();
     convert_word_to_pig_latin();
